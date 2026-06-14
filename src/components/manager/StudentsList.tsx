@@ -96,7 +96,7 @@ export default function StudentsList() {
           <select
             value={month}
             onChange={(e) => setMonth(e.target.value)}
-            className="bg-white/8 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-pink-400"
+            className="bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-pink-400 [color-scheme:dark]"
           >
             {Array.from({ length: 6 }, (_, i) => {
               const d = new Date();

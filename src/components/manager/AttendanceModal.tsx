@@ -86,7 +86,7 @@ export default function AttendanceModal({ student, month, onClose }: Props) {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="flex-1 bg-white/8 border border-white/15 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-pink-400"
+            className="flex-1 bg-white/10 border border-white/20 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-pink-400 [color-scheme:dark]"
           />
           <button
             onClick={addAttendance}

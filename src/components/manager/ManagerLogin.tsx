@@ -66,10 +66,10 @@ export default function ManagerLogin({ onSuccess, onBack }: Props) {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Пароль"
                 autoFocus
-                className={`w-full bg-white/8 border rounded-xl px-4 py-3.5 pr-12 text-white placeholder-white/25 focus:outline-none transition-colors ${
+                className={`w-full bg-white/10 border rounded-xl px-4 py-3.5 pr-12 text-white placeholder-white/40 focus:outline-none transition-colors [color-scheme:dark] ${
                   error
                     ? "border-red-500/60 focus:border-red-500"
-                    : "border-white/15 focus:border-pink-400"
+                    : "border-white/20 focus:border-pink-400"
                 }`}
               />
               <button

@@ -68,7 +68,7 @@ export default function TrialForm({ onClose }: Props) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Имя ребёнка или ваше"
-                  className="w-full bg-white/8 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-pink-400 transition-colors"
+                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-pink-400 transition-colors [color-scheme:dark]"
                 />
               </div>
               <div>
@@ -78,7 +78,7 @@ export default function TrialForm({ onClose }: Props) {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+7 000 000-00-00"
-                  className="w-full bg-white/8 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-pink-400 transition-colors"
+                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-pink-400 transition-colors [color-scheme:dark]"
                 />
               </div>
               <div>
