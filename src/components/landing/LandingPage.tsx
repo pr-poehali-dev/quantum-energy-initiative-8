@@ -5,6 +5,7 @@ import TrialForm from "@/components/landing/TrialForm";
 import PricesSection from "@/components/landing/PricesSection";
 import ScheduleSection from "@/components/landing/ScheduleSection";
 import WhySection from "@/components/landing/WhySection";
+import TrainerSection from "@/components/landing/TrainerSection";
 
 interface Props {
   onManagerClick: () => void;
@@ -39,7 +40,7 @@ export default function LandingPage({ onManagerClick }: Props) {
             className="h-11 w-auto"
           />
           <nav className="hidden md:flex items-center gap-8">
-            {[["#why", "О нас"], ["#schedule", "Расписание"], ["#prices", "Цены"], ["#contact", "Контакты"]].map(([href, label]) => (
+            {[["#why", "О нас"], ["#trainer", "Тренер"], ["#schedule", "Расписание"], ["#prices", "Цены"], ["#contact", "Контакты"]].map(([href, label]) => (
               <a key={href} href={href} className="text-xs uppercase tracking-[0.15em] text-white/60 hover:text-white transition-colors duration-300 font-semibold">{label}</a>
             ))}
             <button
@@ -55,7 +56,7 @@ export default function LandingPage({ onManagerClick }: Props) {
         </div>
         {menuOpen && (
           <div className="md:hidden bg-[#0f0f0f] border-t border-white/10 px-6 py-6 flex flex-col gap-5">
-            {[["#why", "О нас"], ["#schedule", "Расписание"], ["#prices", "Цены"], ["#contact", "Контакты"]].map(([href, label]) => (
+            {[["#why", "О нас"], ["#trainer", "Тренер"], ["#schedule", "Расписание"], ["#prices", "Цены"], ["#contact", "Контакты"]].map(([href, label]) => (
               <a key={href} href={href} onClick={() => setMenuOpen(false)} className="text-sm uppercase tracking-wide text-white/70 font-semibold">{label}</a>
             ))}
             <button
@@ -161,8 +162,13 @@ export default function LandingPage({ onManagerClick }: Props) {
         <WhySection />
       </section>
 
+      {/* ТРЕНЕР */}
+      <section id="trainer" className="py-28 px-6 bg-[#0d0d0d]">
+        <TrainerSection />
+      </section>
+
       {/* РАСПИСАНИЕ */}
-      <section id="schedule" className="py-28 px-6 bg-[#0d0d0d]">
+      <section id="schedule" className="py-28 px-6">
         <ScheduleSection />
       </section>
 
@@ -193,26 +199,17 @@ export default function LandingPage({ onManagerClick }: Props) {
                     <Icon name="Phone" size={16} className="text-pink-400" />
                   </div>
                   <div>
-                    <div className="text-white/40 text-xs">Телефон / WhatsApp</div>
+                    <div className="text-white/40 text-xs">Телефон / WhatsApp / Макс</div>
                     <div className="text-white font-semibold group-hover:text-pink-300 transition-colors">+7 993 481-32-21</div>
                   </div>
                 </a>
-                <a href="https://t.me/+79934813221" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group">
+                <a href="https://t.me/Yanchiks_01" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group">
                   <div className="w-9 h-9 rounded-lg bg-cyan-500/20 flex items-center justify-center shrink-0">
                     <Icon name="Send" size={16} className="text-cyan-400" />
                   </div>
                   <div>
                     <div className="text-white/40 text-xs">Telegram</div>
-                    <div className="text-white font-semibold group-hover:text-cyan-300 transition-colors">Написать в Telegram</div>
-                  </div>
-                </a>
-                <a href="https://vk.com/shopenman" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group">
-                  <div className="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0">
-                    <Icon name="Globe" size={16} className="text-blue-400" />
-                  </div>
-                  <div>
-                    <div className="text-white/40 text-xs">ВКонтакте</div>
-                    <div className="text-white font-semibold group-hover:text-blue-300 transition-colors">vk.com/shopenman</div>
+                    <div className="text-white font-semibold group-hover:text-cyan-300 transition-colors">@Yanchiks_01</div>
                   </div>
                 </a>
               </div>
@@ -230,12 +227,12 @@ export default function LandingPage({ onManagerClick }: Props) {
               <div className="bg-white/4 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3">
                 <div className="bg-white rounded-2xl p-3">
                   <img
-                    src="https://cdn.poehali.dev/projects/4e5bf7be-695b-4f39-aa19-2bd9affbc58b/bucket/635f07d0-9d30-4e9b-a693-a6cbf6dc361b.jpg"
-                    alt="QR Telegram тренера Павла"
+                    src="https://cdn.poehali.dev/projects/4e5bf7be-695b-4f39-aa19-2bd9affbc58b/bucket/ee6b7c07-da86-4d33-aa44-85ba9615ba74.jpg"
+                    alt="QR Telegram тренера"
                     className="w-40 h-40 object-contain rounded-xl"
                   />
                 </div>
-                <p className="text-white/40 text-xs text-center">Telegram-канал тренера Павла<br />@shopendance</p>
+                <p className="text-white/40 text-xs text-center">Telegram-канал тренера<br />@shopendance</p>
               </div>
             </div>
           </div>

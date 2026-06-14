@@ -117,13 +117,13 @@ export default function StudentsList() {
         </div>
         <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
           <div className="text-2xl font-black text-pink-400">
-            {filtered.reduce((s, st) => s + Number(st.visits_this_month), 0)}
+            {filtered.reduce((s, st) => s + (parseInt(String(st.visits_this_month), 10) || 0), 0)}
           </div>
           <div className="text-white/50 text-xs mt-1">Посещений в {monthLabel}</div>
         </div>
         <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
           <div className="text-2xl font-black text-orange-400">
-            {filtered.filter((s) => Number(s.visits_this_month) > 0).length}
+            {filtered.filter((s) => (parseInt(String(s.visits_this_month), 10) || 0) > 0).length}
           </div>
           <div className="text-white/50 text-xs mt-1">Ходили в этом месяце</div>
         </div>
@@ -140,7 +140,7 @@ export default function StudentsList() {
       ) : (
         <div className="space-y-3">
           {filtered.map((student) => {
-            const visits = Number(student.visits_this_month);
+            const visits = parseInt(String(student.visits_this_month), 10) || 0;
             return (
               <div
                 key={student.id}
