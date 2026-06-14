@@ -30,7 +30,7 @@ export default function LandingPage({ onManagerClick }: Props) {
   return (
     <div className="min-h-screen bg-[#080808] text-white overflow-x-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
 
-      {/* ── HEADER ── */}
+      {/* HEADER */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[#080808]/95 backdrop-blur-md shadow-lg shadow-black/50" : "bg-transparent"}`}>
         <div className="flex justify-between items-center px-6 md:px-10 py-4">
           <img
@@ -38,9 +38,8 @@ export default function LandingPage({ onManagerClick }: Props) {
             alt="Curly Dancing"
             className="h-11 w-auto"
           />
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {[["#why", "Почему мы"], ["#schedule", "Расписание"], ["#prices", "Цены"], ["#contact", "Контакты"]].map(([href, label]) => (
+            {[["#why", "О нас"], ["#schedule", "Расписание"], ["#prices", "Цены"], ["#contact", "Контакты"]].map(([href, label]) => (
               <a key={href} href={href} className="text-xs uppercase tracking-[0.15em] text-white/60 hover:text-white transition-colors duration-300 font-semibold">{label}</a>
             ))}
             <button
@@ -50,15 +49,13 @@ export default function LandingPage({ onManagerClick }: Props) {
               Пробное — 400 ₽
             </button>
           </nav>
-          {/* Mobile burger */}
           <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
             <Icon name={menuOpen ? "X" : "Menu"} size={24} />
           </button>
         </div>
-        {/* Mobile menu */}
         {menuOpen && (
           <div className="md:hidden bg-[#0f0f0f] border-t border-white/10 px-6 py-6 flex flex-col gap-5">
-            {[["#why", "Почему мы"], ["#schedule", "Расписание"], ["#prices", "Цены"], ["#contact", "Контакты"]].map(([href, label]) => (
+            {[["#why", "О нас"], ["#schedule", "Расписание"], ["#prices", "Цены"], ["#contact", "Контакты"]].map(([href, label]) => (
               <a key={href} href={href} onClick={() => setMenuOpen(false)} className="text-sm uppercase tracking-wide text-white/70 font-semibold">{label}</a>
             ))}
             <button
@@ -71,17 +68,15 @@ export default function LandingPage({ onManagerClick }: Props) {
         )}
       </header>
 
-      {/* ── HERO ── */}
+      {/* HERO */}
       <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         <motion.div style={{ y: heroY }} className="absolute inset-0">
           <img src={HERO_IMG} alt="Hip-hop dancer" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/40 via-[#080808]/20 to-[#080808]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/50 via-[#080808]/20 to-[#080808]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/60 via-transparent to-[#080808]/30" />
         </motion.div>
-
-        {/* Glows */}
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-pink-600/25 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-orange-500/20 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-orange-500/15 rounded-full blur-[100px] pointer-events-none" />
 
         <motion.div style={{ opacity: heroOpacity }} className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
@@ -121,7 +116,7 @@ export default function LandingPage({ onManagerClick }: Props) {
               onClick={() => setShowTrialForm(true)}
               className="group relative bg-gradient-to-r from-pink-500 to-orange-400 text-white font-black uppercase tracking-wide px-10 py-5 rounded-2xl text-base overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg shadow-pink-500/30"
             >
-              <span className="relative z-10">Попробовать бесплатно →</span>
+              <span className="relative z-10">Попробовать — 400 ₽ →</span>
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
             <a
@@ -133,7 +128,6 @@ export default function LandingPage({ onManagerClick }: Props) {
           </motion.div>
         </motion.div>
 
-        {/* Scroll hint */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -147,7 +141,7 @@ export default function LandingPage({ onManagerClick }: Props) {
         </motion.div>
       </section>
 
-      {/* ── TICKER ── */}
+      {/* TICKER */}
       <div className="bg-gradient-to-r from-pink-600 via-orange-500 to-yellow-400 overflow-hidden py-3">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -156,126 +150,99 @@ export default function LandingPage({ onManagerClick }: Props) {
         >
           {Array(8).fill(null).map((_, i) => (
             <span key={i} className="text-black font-black uppercase tracking-widest text-sm px-8">
-              Hip-Hop &nbsp;·&nbsp; Детская группа &nbsp;·&nbsp; Взрослая группа &nbsp;·&nbsp; Зеленогорск &nbsp;·&nbsp; Павел Тренер &nbsp;·&nbsp; Пробное 400₽ &nbsp;·&nbsp;
+              Hip-Hop &nbsp;·&nbsp; Детская группа &nbsp;·&nbsp; Взрослая 18+ &nbsp;·&nbsp; Зеленогорск &nbsp;·&nbsp; Кудрявый тренер &nbsp;·&nbsp; Пробное 400₽ &nbsp;·&nbsp;
             </span>
           ))}
         </motion.div>
       </div>
 
-      {/* ── WHY US ── */}
+      {/* О НАС */}
       <section id="why" className="py-28 px-6">
-        <WhySection onTrial={() => setShowTrialForm(true)} />
+        <WhySection />
       </section>
 
-      {/* ── SCHEDULE ── */}
+      {/* РАСПИСАНИЕ */}
       <section id="schedule" className="py-28 px-6 bg-[#0d0d0d]">
         <ScheduleSection />
       </section>
 
-      {/* ── PRICES ── */}
+      {/* ЦЕНЫ */}
       <section id="prices" className="py-28 px-6">
         <PricesSection onTrial={() => setShowTrialForm(true)} />
       </section>
 
-      {/* ── CTA BANNER ── */}
-      <section className="relative py-28 px-6 overflow-hidden">
-        <img
-          src="https://cdn.poehali.dev/projects/4e5bf7be-695b-4f39-aa19-2bd9affbc58b/files/90f4d814-5e99-4107-91a7-72226bf42d29.jpg"
-          alt="children dancing"
-          className="absolute inset-0 w-full h-full object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-pink-900/60 to-orange-900/60" />
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-black uppercase leading-tight mb-6">
-            Первый шаг<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-orange-300">всегда за 400 ₽</span>
-          </h2>
-          <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
-            Купи абонемент после пробного — и первое занятие становится бесплатным. Без риска, только кайф.
-          </p>
-          <button
-            onClick={() => setShowTrialForm(true)}
-            className="bg-white text-black font-black uppercase tracking-wide px-10 py-5 rounded-2xl text-base hover:scale-105 transition-transform shadow-xl"
-          >
-            Записаться на пробное
-          </button>
-        </div>
-      </section>
-
-      {/* ── CONTACT ── */}
+      {/* КОНТАКТЫ */}
       <section id="contact" className="py-28 px-6 bg-[#0d0d0d]">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <div className="text-pink-400 uppercase tracking-[0.2em] text-sm font-semibold mb-3">Свяжись с нами</div>
+            <div className="text-pink-400 uppercase tracking-[0.2em] text-sm font-semibold mb-3">Связь</div>
             <h2 className="text-4xl md:text-6xl font-black uppercase">
-              Мы здесь <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-orange-400">для тебя</span>
+              Мы на{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-orange-400">связи</span>
             </h2>
+            <p className="text-white/40 mt-4 max-w-md mx-auto">Пишите или звоните Яне — менеджеру студии. Ответим в любом удобном мессенджере.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {[
-              {
-                icon: "Phone",
-                color: "from-pink-600 to-pink-400",
-                glow: "bg-pink-500/10 border-pink-500/20",
-                title: "Менеджер Яна",
-                value: "+7 993 481-32-21",
-                sub: "Звоните — всегда на связи",
-                href: "tel:+79934813221",
-              },
-              {
-                icon: "Send",
-                color: "from-cyan-600 to-cyan-400",
-                glow: "bg-cyan-500/10 border-cyan-500/20",
-                title: "Telegram тренера Павла",
-                value: "@shopendance",
-                sub: "Вопросы о тренировках",
-                href: "https://t.me/shopendance",
-              },
-              {
-                icon: "MapPin",
-                color: "from-orange-600 to-orange-400",
-                glow: "bg-orange-500/10 border-orange-500/20",
-                title: "Адрес студии",
-                value: "пер. Речной, 4",
-                sub: "г. Зеленогорск, 2 этаж",
-                href: undefined,
-              },
-            ].map((c) => (
-              <div key={c.title} className={`${c.glow} border rounded-2xl p-6 flex flex-col gap-4 hover:scale-[1.02] transition-transform`}>
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${c.color} flex items-center justify-center`}>
-                  <Icon name={c.icon} size={22} className="text-white" />
-                </div>
-                <div>
-                  <div className="text-white/40 text-xs uppercase tracking-wide mb-1">{c.title}</div>
-                  {c.href ? (
-                    <a href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="text-white font-bold text-lg hover:text-pink-300 transition-colors">
-                      {c.value}
-                    </a>
-                  ) : (
-                    <div className="text-white font-bold text-lg">{c.value}</div>
-                  )}
-                  <div className="text-white/40 text-sm mt-1">{c.sub}</div>
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {/* Контакты менеджера */}
+            <div className="bg-white/4 border border-white/10 rounded-2xl p-7">
+              <h3 className="font-black text-white text-lg mb-5">📞 Яна — менеджер</h3>
+              <div className="space-y-3">
+                <a href="tel:+79934813221" className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group">
+                  <div className="w-9 h-9 rounded-lg bg-pink-500/20 flex items-center justify-center shrink-0">
+                    <Icon name="Phone" size={16} className="text-pink-400" />
+                  </div>
+                  <div>
+                    <div className="text-white/40 text-xs">Телефон / WhatsApp</div>
+                    <div className="text-white font-semibold group-hover:text-pink-300 transition-colors">+7 993 481-32-21</div>
+                  </div>
+                </a>
+                <a href="https://t.me/+79934813221" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group">
+                  <div className="w-9 h-9 rounded-lg bg-cyan-500/20 flex items-center justify-center shrink-0">
+                    <Icon name="Send" size={16} className="text-cyan-400" />
+                  </div>
+                  <div>
+                    <div className="text-white/40 text-xs">Telegram</div>
+                    <div className="text-white font-semibold group-hover:text-cyan-300 transition-colors">Написать в Telegram</div>
+                  </div>
+                </a>
+                <a href="https://vk.com/shopenman" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors group">
+                  <div className="w-9 h-9 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0">
+                    <Icon name="Globe" size={16} className="text-blue-400" />
+                  </div>
+                  <div>
+                    <div className="text-white/40 text-xs">ВКонтакте</div>
+                    <div className="text-white font-semibold group-hover:text-blue-300 transition-colors">vk.com/shopenman</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* Адрес + QR */}
+            <div className="space-y-4">
+              <div className="bg-white/4 border border-white/10 rounded-2xl p-7">
+                <h3 className="font-black text-white text-lg mb-4">📍 Студия</h3>
+                <div className="text-white/70 leading-relaxed">
+                  <div className="text-white font-semibold text-base">г. Зеленогорск</div>
+                  <div>пер. Речной, д. 4, 2 этаж</div>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* QR */}
-          <div className="flex flex-col items-center gap-4">
-            <div className="bg-white rounded-3xl p-4 shadow-2xl shadow-pink-500/10">
-              <img
-                src="https://cdn.poehali.dev/projects/4e5bf7be-695b-4f39-aa19-2bd9affbc58b/bucket/635f07d0-9d30-4e9b-a693-a6cbf6dc361b.jpg"
-                alt="QR Telegram"
-                className="w-52 h-52 object-contain rounded-2xl"
-              />
+              <div className="bg-white/4 border border-white/10 rounded-2xl p-5 flex flex-col items-center gap-3">
+                <div className="bg-white rounded-2xl p-3">
+                  <img
+                    src="https://cdn.poehali.dev/projects/4e5bf7be-695b-4f39-aa19-2bd9affbc58b/bucket/635f07d0-9d30-4e9b-a693-a6cbf6dc361b.jpg"
+                    alt="QR Telegram тренера Павла"
+                    className="w-40 h-40 object-contain rounded-xl"
+                  />
+                </div>
+                <p className="text-white/40 text-xs text-center">Telegram-канал тренера Павла<br />@shopendance</p>
+              </div>
             </div>
-            <p className="text-white/40 text-sm text-center">Сканируй QR — и ты уже в Telegram-канале Павла</p>
           </div>
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
+      {/* FOOTER */}
       <footer className="bg-[#080808] border-t border-white/8 py-8 px-6">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <img
@@ -283,13 +250,13 @@ export default function LandingPage({ onManagerClick }: Props) {
             alt="Curly Dancing"
             className="h-9 w-auto opacity-60"
           />
-          <p className="text-white/25 text-sm">{new Date().getFullYear()} Curly Dancing · Зеленогорск</p>
+          <p className="text-white/20 text-sm">{new Date().getFullYear()} Curly Dancing · Зеленогорск</p>
           <button
             onClick={onManagerClick}
-            className="text-white/20 hover:text-white/50 transition-colors text-xs flex items-center gap-1"
+            className="text-white/15 hover:text-white/40 transition-colors text-xs flex items-center gap-1.5"
           >
-            <Icon name="Lock" size={12} />
-            Панель менеджера
+            <Icon name="Lock" size={11} />
+            Вход для менеджера
           </button>
         </div>
       </footer>
