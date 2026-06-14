@@ -1,0 +1,18 @@
+{
+  "tests": [
+    {
+      "name": "List students",
+      "method": "GET",
+      "path": "/?action=list",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get stats",
+      "method": "GET",
+      "path": "/?action=stats",
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    }
+  ]
+}

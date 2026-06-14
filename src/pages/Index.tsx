@@ -1,18 +1,16 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Featured from "@/components/Featured";
-import Promo from "@/components/Promo";
-import Footer from "@/components/Footer";
+import { useState } from "react";
+import LandingPage from "@/components/landing/LandingPage";
+import ManagerPanel from "@/components/manager/ManagerPanel";
+
 
 const Index = () => {
+  const [view, setView] = useState<"landing" | "manager">("landing");
+
   return (
-    <main className="min-h-screen">
-      <Header />
-      <Hero />
-      <Featured />
-      <Promo />
-      <Footer />
-    </main>
+    <div>
+      {view === "landing" && <LandingPage onManagerClick={() => setView("manager")} />}
+      {view === "manager" && <ManagerPanel onBack={() => setView("landing")} />}
+    </div>
   );
 };
 
