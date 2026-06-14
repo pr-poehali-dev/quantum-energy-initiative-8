@@ -54,7 +54,7 @@ def handler(event: dict, context) -> dict:
                     month = date.today().strftime("%Y-%m")
                 cur.execute("""
                     SELECT s.id, s.name, s.phone, s.group_type,
-                        COUNT(a.id) AS visits
+                        COUNT(a.id) AS visits_this_month
                     FROM students s
                     LEFT JOIN attendances a ON a.student_id = s.id AND TO_CHAR(a.attended_at, 'YYYY-MM') = %s
                     WHERE s.active = true
@@ -63,6 +63,8 @@ def handler(event: dict, context) -> dict:
                 """, (month,))
                 cols = [d[0] for d in cur.description]
                 rows = [dict(zip(cols, row)) for row in cur.fetchall()]
+                for r in rows:
+                    r["visits_this_month"] = int(r["visits_this_month"] or 0)
                 return {"statusCode": 200, "headers": {"Access-Control-Allow-Origin": "*"}, "body": json.dumps(rows, ensure_ascii=False)}
 
         if method == "POST":
